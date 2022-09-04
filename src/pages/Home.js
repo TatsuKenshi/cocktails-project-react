@@ -1,10 +1,19 @@
-import React, { useContext } from "react";
-import { CocktailContext } from "../context/CocktailContext";
+import React from "react";
+import Search from "../components/Search";
+import CocktailList from "../components/CocktailList";
 
 const Home = () => {
-  const data = useContext(CocktailContext);
-  console.log(data);
-  return <div>Home</div>;
+  return (
+    <main className="bg-slate-200">
+      <div>
+        <h1>Home Page</h1>
+      </div>
+      <div className="text-center">
+        <Search />
+        <CocktailList />
+      </div>
+    </main>
+  );
 };
 
 export default Home;

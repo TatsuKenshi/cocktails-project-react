@@ -1,7 +1,12 @@
 import React from "react";
+import gif from "../assets/loading.gif";
 
 const Loading = () => {
-  return <div>Loading</div>;
+  return (
+    <>
+      <img src={gif} alt="" />
+    </>
+  );
 };
 
 export default Loading;
