@@ -1,48 +1,30 @@
-import axios from "axios";
-import React, { createContext, useState, useEffect, useCallback } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import useFetch from "../hooks/useFetch";
 
 export const CocktailContext = createContext();
-const allCocktailsUrl =
-  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const CocktailContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [cocktails, setCocktails] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  const fetchDrinks = useCallback(async () => {
-    setIsLoading(true);
+  const { fetchDrinks, isLoading, searchTerm, cocktails, setSearchTerm } =
+    useFetch(url);
 
-    try {
-      const response = await axios(`${allCocktailsUrl}${searchTerm}`);
-      const data = await response.data;
-      const { drinks } = data;
-      if (drinks) {
-        const newCocktails = drinks.map((drink) => {
-          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
-            drink;
-          return {
-            id: idDrink,
-            name: strDrink,
-            image: strDrinkThumb,
-            info: strAlcoholic,
-            glass: strGlass,
-          };
-        });
-        setCocktails(newCocktails);
-      } else {
-        setCocktails([]);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
+  const hideDropdown = () => {
+    if (window.innerWidth > "768") {
+      setShowDropdown(false);
     }
-  }, [searchTerm]);
+  };
 
   useEffect(() => {
     fetchDrinks();
   }, [searchTerm, fetchDrinks]);
+
+  useEffect(() => {
+    window.addEventListener("resize", hideDropdown);
+
+    return () => window.removeEventListener("resize", hideDropdown);
+  });
 
   return (
     <CocktailContext.Provider
@@ -51,6 +33,8 @@ const CocktailContextProvider = ({ children }) => {
         searchTerm,
         cocktails,
         setSearchTerm,
+        showDropdown,
+        setShowDropdown,
       }}
     >
       {children}

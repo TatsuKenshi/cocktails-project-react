@@ -18,10 +18,13 @@ const Search = () => {
   }, []);
 
   return (
-    <section className="justify-self-center">
+    <section className="py-2">
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">search the cocktail database</label>
+          <label htmlFor="name" className="text-xl">
+            Search the <span className="text-lime-800 font-bold">Cocktail</span>{" "}
+            Database
+          </label>
         </div>
         <div>
           <input
@@ -29,7 +32,7 @@ const Search = () => {
             id="name"
             ref={searchValue}
             onChange={searchCocktails}
-            className="border border-slate-500 p-1"
+            className="border border-lime-800 p-1 mt-2 rounded-lg max-w-[90%]"
           />
         </div>
       </form>

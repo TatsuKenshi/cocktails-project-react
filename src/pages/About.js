@@ -2,8 +2,10 @@ import React from "react";
 
 const About = () => {
   return (
-    <section>
-      <h1>About Component</h1>
+    <section className="pt-40 w-[90%] mx-auto  max-w-[1200px]">
+      <h1 className="mb-4 text-2xl">
+        About <span className="text-lime-800">Us</span>
+      </h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
         corrupti ut ratione odit officiis eius dolorum suscipit unde obcaecati

@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SharedLayout from "./pages/SharedLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Error from "./pages/Error";
 import SingleCocktail from "./pages/SingleCocktail";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="cocktail/:id" element={<SingleCocktail />} />
+          <Route path="*" element={<Error />} />
         </Route>
-        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

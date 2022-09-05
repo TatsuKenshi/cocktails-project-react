@@ -4,14 +4,9 @@ import CocktailList from "../components/CocktailList";
 
 const Home = () => {
   return (
-    <main className="bg-slate-200">
-      <div>
-        <h1>Home Page</h1>
-      </div>
-      <div className="text-center">
-        <Search />
-        <CocktailList />
-      </div>
+    <main className="pt-40 w-[90%] mx-auto">
+      <Search />
+      <CocktailList />
     </main>
   );
 };

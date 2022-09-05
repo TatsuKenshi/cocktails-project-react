@@ -3,18 +3,21 @@ import { Link } from "react-router-dom";
 
 const Cocktail = ({ id, image, name, info, glass }) => {
   return (
-    <article className="m-auto p-4">
-      <div className=" bg-white border border-slate-100 rounded-md hover:shadow-xl">
-        <div>
-          <img src={image} alt={name} style={{ width: "250px" }} />
-        </div>
+    <article className="m-auto py-4 px-2 ">
+      <div className=" bg-white border border-slate-100 rounded-lg hover:shadow-xl">
+        <img src={image} alt={name} className="w-[300px] rounded-lg" />
         <div className="py-2">
           <h3>{name}</h3>
           <h4>{glass}</h4>
           <p>{info}</p>
         </div>
-        <div className="mb-2">
-          <Link to={`/cocktail/${id}`}>More Info</Link>
+        <div className="mb-3">
+          <Link
+            to={`/cocktail/${id}`}
+            className="border border-slate-400 p-1 rounded-lg bg-lime-800 text-white"
+          >
+            More Info
+          </Link>
         </div>
       </div>
     </article>

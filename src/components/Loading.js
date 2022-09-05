@@ -1,5 +1,5 @@
 import React from "react";
-import gif from "../assets/loading.gif";
+import gif from "../assets/transparent-loading.gif";
 
 const Loading = () => {
   return (
