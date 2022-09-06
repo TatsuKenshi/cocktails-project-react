@@ -2,16 +2,20 @@ import axios from "axios";
 import { useState, useCallback } from "react";
 
 const useFetch = (url) => {
+  // states
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [cocktails, setCocktails] = useState([]);
 
+  //
   const fetchDrinks = useCallback(async () => {
     setIsLoading(true);
 
     try {
       const response = await axios(`${url}${searchTerm}`);
       const data = await response.data;
+
+      // here, we extract the drinks array from the data property and map it to the newCocktails array if it has any items in it.
       const { drinks } = data;
       if (drinks) {
         const newCocktails = drinks.map((drink) => {
@@ -36,6 +40,7 @@ const useFetch = (url) => {
     }
   }, [searchTerm]);
 
+  // finally we return functions and states from the hook
   return {
     fetchDrinks,
     isLoading,

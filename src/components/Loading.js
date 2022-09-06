@@ -4,7 +4,7 @@ import gif from "../assets/transparent-loading.gif";
 const Loading = () => {
   return (
     <>
-      <img src={gif} alt="" />
+      <img src={gif} alt="loading spinner" />
     </>
   );
 };

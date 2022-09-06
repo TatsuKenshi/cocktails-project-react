@@ -1,3 +1,7 @@
+// // // // //
+// this component displays info (including the picture) of a cocktail on the single cocktail page
+// // // // //
+
 import React from "react";
 
 const CocktailInfo = ({ cocktail }) => {

@@ -1,3 +1,7 @@
+// // // // //
+// this component is displayed on the single cocktail page when there are problems with fetching the cocktail
+// // // // //
+
 import React from "react";
 import { Link } from "react-router-dom";
 

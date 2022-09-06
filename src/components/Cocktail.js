@@ -1,3 +1,7 @@
+// // // // //
+// this is the single cocktail component to be displayed on the home page when we search for cocktails
+// // // // //
+
 import React from "react";
 import { Link } from "react-router-dom";
 

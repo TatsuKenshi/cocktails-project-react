@@ -1,10 +1,17 @@
+// // // // //
+// this is the home page search component
+// // // // //
+
 import React, { useEffect, useRef } from "react";
 import useCocktailContext from "../hooks/useCocktailContext";
 
 const Search = () => {
   const { setSearchTerm } = useCocktailContext();
+
+  // setting up ref on the input
   const searchValue = useRef("");
 
+  // logic for setting the search term state and preventing default form behavior
   const searchCocktails = () => {
     setSearchTerm(searchValue.current.value);
   };
@@ -13,6 +20,7 @@ const Search = () => {
     e.preventDefault();
   };
 
+  // useEffect which focuses the cursor on input when the page loads
   useEffect(() => {
     searchValue.current.focus();
   }, []);

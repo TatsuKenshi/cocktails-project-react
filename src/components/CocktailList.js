@@ -1,3 +1,7 @@
+// // // // //
+// this component displays the list of cocktails which match the search term on the home page when we search for cocktails
+// // // // //
+
 import React from "react";
 import useCocktailContext from "../hooks/useCocktailContext";
 import Cocktail from "../components/Cocktail";
